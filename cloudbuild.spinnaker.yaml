@@ -5,6 +5,6 @@ steps:
   args: ['tag', 'gcr.io/pow-spinnaker/sample-app:$SHORT_SHA', 'gcr.io/pow-spinnaker/sample-app:latest']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/pow-spinnaker/sample-app']
-- name: 'gcr.io/pow-spinnaker/kubectl'
+- name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/sample-app', 'my-container=gcr.io/pow-spinnaker/sample-app']
   # images: ['gcr.io/pow-spinnaker/sample-app:$SHORT_SHA', 'gcr.io/pow-spinnaker/sample-app:latest']
