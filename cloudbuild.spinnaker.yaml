@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/pow-spinnaker/sample-app:$SHORT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'gcr.io/pow-spinnaker/sample-app:$SHORT_SHA', 'gcr.io/pow-spinnaker/sample-app:latest']
+  images: ['gcr.io/pow-spinnaker/sample-app:$SHORT_SHA', 'gcr.io/pow-spinnaker/sample-app:latest']
